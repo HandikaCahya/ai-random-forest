@@ -4,8 +4,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 from imblearn.over_sampling import SMOTE
 
-df = pd.read_csv('C:/Users/Farel/Documents/Farel/DBS Foundation/Capstone Project/data/healthcare-dataset-stroke-data.csv')
-data = df.copy()
+BASE_DIR = os.path.dirname(__file__)
+file_path = os.path.join(BASE_DIR, "data", "healthcare-dataset-stroke-data.csv")
+
+df = pd.read_csv(file_path)
 data.dropna(subset=['bmi'], inplace=True)
 data.drop(columns=['id'], errors='ignore', inplace=True)
 
